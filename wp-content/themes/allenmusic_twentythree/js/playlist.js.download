@@ -1,0 +1,84 @@
+
+$(document).ready(function(){
+
+	$("#jquery_jplayer_2").jPlayer({
+		ready: function () {
+			$(this).jPlayer("setMedia", {
+				title: "Hooked",
+				m4a: "https://webbersunited.com/cms/allen-music/wp-content/uploads/2023/04/hooked.mp3",
+				oga: "https://webbersunited.com/cms/allen-music/wp-content/uploads/2023/04/hooked.mp3"
+			});
+		},
+		play: function() { // To avoid multiple jPlayers playing together.
+			$(this).jPlayer("pauseOthers");
+		},
+		swfPath: "../js",
+		supplied: "m4a, oga",
+		cssSelectorAncestor: "#jp_container_2",
+		wmode: "window",
+		globalVolume: true,
+		useStateClassSkin: true,
+		autoBlur: false,
+		smoothPlayBar: true,
+		keyEnabled: true
+	});
+
+	$("#jquery_jplayer_1").jPlayer({
+		ready: function () {
+			$(this).jPlayer("setMedia", {
+			});
+		},
+		play: function() { // To avoid multiple jPlayers playing together.
+			$(this).jPlayer("pauseOthers");
+		},
+		swfPath: "../js",
+		supplied: "m4a, oga",
+		cssSelectorAncestor: "#jp_container_1",
+		wmode: "window",
+		globalVolume: true,
+		useStateClassSkin: true,
+		autoBlur: false,
+		smoothPlayBar: true,
+		keyEnabled: true
+	});
+
+	new jPlayerPlaylist({
+		jPlayer: "#jquery_jplayer_1",
+		cssSelectorAncestor: "#jp_container_1"
+	}, [
+		{
+			title:"Amber Allen Lia",
+			mp3:"https://dwstaging.link/cms/allen-music/wp-content/uploads/2023/12/Amber-Allen-Liar.mp3",
+			oga:"http://www.jplayer.org/audio/ogg/TSP-01-Cro_magnon_man.ogg"
+		},
+				
+	], {
+		swfPath: "../../dist/jplayer",
+		supplied: "oga, mp3",
+		wmode: "window",
+		useStateClassSkin: true,
+		autoBlur: false,
+		smoothPlayBar: true,
+		keyEnabled: true
+	});
+
+	new jPlayerPlaylist({
+		//jPlayer: "#jquery_jplayer_2",
+		//cssSelectorAncestor: "#jp_container_2"
+	}, [
+		{
+			title:"Amber Allen Lia",
+			mp3:"https://dwstaging.link/cms/allen-music/wp-content/uploads/2023/12/Amber-Allen-Liar.mp3",
+			oga:"https://dwstaging.link/cms/allen-music/wp-content/uploads/2023/12/Amber-Allen-Liar.mp3"
+		},
+				
+	], {
+		swfPath: "../../dist/jplayer",
+		supplied: "oga, mp3",
+		wmode: "window",
+		useStateClassSkin: true,
+		autoBlur: false,
+		smoothPlayBar: true,
+		keyEnabled: true
+	});
+});
